@@ -1,8 +1,14 @@
 import React from "react";
-import "./Home.scss";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      Home
+      {/*Recommended */}
+      {/*SpecialOffers */}
+      {/*  */}
+    </div>
+  );
 };
 
 export default Home;
