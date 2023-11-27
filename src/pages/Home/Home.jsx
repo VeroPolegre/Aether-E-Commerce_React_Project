@@ -1,10 +1,10 @@
 import React from "react";
+import Categories from "../../components/Categories/Categories";
 
 const Home = () => {
   return (
     <div>
-      Home
-      {/*Categories */}
+      <h2>Home</h2>
       {/*Recommended */}
       {/*SpecialOffers */}
       {/*  */}

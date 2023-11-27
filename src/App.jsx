@@ -4,6 +4,9 @@ import Header from "./pages/Header/Header";
 import Login from "./pages/Login/Login";
 import Footer from "./pages/Footer/Footer";
 import Home from "./pages/Home/Home";
+import Categories from "./components/Categories/Categories";
+import Library from "./pages/Library/Library";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -11,11 +14,13 @@ function App() {
       <div className="lg:max-w-[90vw] xl:max-w-[80vw] mx-auto">
         <Router>
           <Header />
+          <Categories />
           <Routes>
-            <Route path="/login" element={<Login />}></Route>
             <Route path="/home" element={<Home />}></Route>
+            <Route path="/library" element={<Library />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
-          {/*Browse*/}
           <Footer />
         </Router>
       </div>

@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 const Header = () => {
   return (
     <header className="Header">
-      <h1>Header</h1>
+      <h1 className="gradient mb-2">Developed by VeroPolegre</h1>
       <Navbar />
     </header>
   );
