@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <div>
       Home
+      {/*Categories */}
       {/*Recommended */}
       {/*SpecialOffers */}
       {/*  */}
