@@ -17,6 +17,7 @@ import Simulation from "./components/Categories/Simulation/Simulation";
 import Sports_and_Racing from "./components/Categories/Sports_and_Racing/Sports_and_Racing";
 import Join from "./pages/Login/Join/Join";
 import { UserProvider } from "./context/UserContext/UserState";
+import Confirmation from "./pages/Confirmation/Confirmation";
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
               <Categories />
               <Routes>
                 <Route path="/join" element={<Join />}></Route>
+                <Route
+                  path="/confirmed/:email"
+                  element={<Confirmation />}
+                ></Route>
                 <Route path="/home" element={<Home />}></Route>
                 <Route path="/library" element={<Library />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>

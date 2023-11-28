@@ -3,11 +3,18 @@ import "./Join.scss";
 import { UserContext } from "../../../context/UserContext/UserState";
 
 const Join = () => {
-  const [user, setUser] = useState("");
+  const initialValue = { name: "", email: "", password: "" };
+  const [user, setUser] = useState(initialValue);
   const { create } = useContext(UserContext);
-  const handleSubmit = (event) => {
-    event.preventDefault();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
     create(user);
+  };
+
+  const handleOnChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   return (
@@ -31,29 +38,26 @@ const Join = () => {
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21]"
               name="name"
+              value={user.name}
+              onChange={handleOnChange}
               placeholder="username"
             />
-
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21]"
               name="email"
+              value={user.email}
+              onChange={handleOnChange}
               placeholder="email"
             />
-
             <input
               type="password"
               className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21]"
               name="password"
+              value={user.password}
+              onChange={handleOnChange}
               placeholder="password"
             />
-            {/* <input
-              type="password"
-              className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21]"
-              name="confirm_password"
-              placeholder="confirm password"
-            /> */}
-
             <button
               type="submit"
               className="w-100 text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 bg-[#b268df] px-2 py-1 rounded-[0.3rem]"
