@@ -56,9 +56,12 @@ const Navbar = () => {
             <IoIosNotificationsOutline className="w-5 h-5" />
           </div>
           <div className="ml-2 bg-[#174db3] hover:bg-inherit px-10 py-[6px] rounded-[0.5rem] group duration-100 ease-out">
-            <p className="text-white font-bold group-hover:text-[#b268df]">
-              Sign in
-            </p>
+            <Link
+              to="/join"
+              className="text-white font-bold group-hover:text-[#b268df]"
+            >
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

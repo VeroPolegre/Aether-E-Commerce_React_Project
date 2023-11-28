@@ -1,27 +1,40 @@
 import React from "react";
 import "./Categories.scss";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
     <div className="gradient mx-[2rem] pl-4 pr-2 mt-4 flex items-center justify-between ">
       <ul className="flex items-center py-1.5 text-white text-[14px] gap-10">
         <li>
-          <p>Action</p>
+          <Link to="/categories/action" className="category-link">
+            Action
+          </Link>
         </li>
         <li>
-          <p>Role-Playing</p>
+          <Link to="/categories/role-playing" className="category-link">
+            Role-Playing
+          </Link>
         </li>
         <li>
-          <p>Strategy</p>
+          <Link to="/categories/strategy" className="category-link">
+            Strategy
+          </Link>
         </li>
         <li>
-          <p>Adventure</p>
+          <Link to="/categories/adventure" className="category-link">
+            Adventure
+          </Link>
         </li>
         <li>
-          <p>Simulation</p>
+          <Link to="/categories/simulation" className="category-link">
+            Simulation
+          </Link>
         </li>
         <li>
-          <p>Sports & Racing</p>
+          <Link to="/categories/sports-and-racing" className="category-link">
+            Sports & Racing
+          </Link>
         </li>
       </ul>
       <input
