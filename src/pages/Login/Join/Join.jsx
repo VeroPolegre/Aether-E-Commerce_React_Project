@@ -3,7 +3,7 @@ import "./Join.scss";
 import { UserContext } from "../../../context/UserContext/UserState";
 
 const Join = () => {
-  const { user } = useState("");
+  const [user, setUser] = useState("");
   const { create } = useContext(UserContext);
   const handleSubmit = (event) => {
     event.preventDefault();

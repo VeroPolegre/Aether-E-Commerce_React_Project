@@ -3,10 +3,11 @@ const users = (state, action) => {
     case "JOIN":
       return {
         ...state,
-        token: action.payload.token,
+        token: action.payload,
       };
     default:
       return state;
   }
 };
+
 export default users;

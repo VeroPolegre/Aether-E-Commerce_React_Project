@@ -1,3 +1,22 @@
 h1 {
   font-family: "Orbitron", sans-serif;
 }
+
+// Navbar.scss
+
+.navbar {
+  background-color: #171a21;
+  color: #c5c3c0;
+
+  .navbar-link {
+    // Additional styles for navbar links
+    text-decoration: none;
+    color: #c5c3c0;
+
+    &:hover {
+      color: #ffffff; // Change color on hover if needed
+    }
+  }
+
+  // Add more custom styles as needed
+}

@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
-import { ImDownload } from "react-icons/im";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className="navbar bg-[#171a21]">
       <div className="flex items-center max-w-[100vw] mx-auto relative">
         {/* Nav ham */}
-        <div className="flex items-center justify-center  lg:justify-start py-2 px-2 lg:py-6 lg:px-8 w-full lg:w-auto">
-          <div className="lg:hidden left-4 absolute text-white">
+        <div className="flex items-center justify-center lg:justify-start py-2 px-2 lg:py-6 lg:px-8 w-full lg:w-auto">
+          <div
+            className="lg:hidden left-4 absolute text-white cursor-pointer"
+            onClick={toggleMenu}
+          >
             <FiMenu className="text-[30px]" />
           </div>
           {/* Logo */}
@@ -23,7 +29,9 @@ const Navbar = () => {
           </div>
         </div>
         {/* Navbar */}
-        <div className="hidden lg:flex pl-6">
+        <div
+          className={`hidden lg:flex pl-6 ${isMenuOpen ? "lg:flex" : "hidden"}`}
+        >
           <ul className="text-[#c5c3c0] text-[18px] flex gap-5">
             <li>
               <Link to="/home" className="navbar-link">

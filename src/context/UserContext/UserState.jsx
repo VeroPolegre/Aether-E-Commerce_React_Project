@@ -30,7 +30,6 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         token: state.token,
-        user: state.user,
         create,
       }}
     >
