@@ -10,7 +10,7 @@ import { HiOutlineSpeakerphone } from "react-icons/hi";
 const Navbar = () => {
   return (
     <div className="navbar bg-[#171a21]">
-      <div className="flex items-center  max-w-[100vw] mx-auto relative">
+      <div className="flex items-center max-w-[100vw] mx-auto relative">
         {/* Nav ham */}
         <div className="flex items-center justify-center  lg:justify-start py-2 px-2 lg:py-6 lg:px-8 w-full lg:w-auto">
           <div className="lg:hidden left-4 absolute text-white">

@@ -1,10 +1,10 @@
 import React from "react";
-import Categories from "../../components/Categories/Categories";
+import Games from "../../components/Games/Games";
 
 const Home = () => {
   return (
     <div>
-      <h2>Home</h2>
+      <Games />
       {/*Recommended */}
       {/*SpecialOffers */}
       {/*  */}

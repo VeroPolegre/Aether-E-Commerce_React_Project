@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { GameProvider } from "./context/GameContext/GameState";
 import Header from "./pages/Header/Header";
 import Login from "./pages/Login/Login";
 import Footer from "./pages/Footer/Footer";
@@ -15,12 +16,14 @@ function App() {
         <Router>
           <Header />
           <Categories />
-          <Routes>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/library" element={<Library />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-          </Routes>
+          <GameProvider>
+            <Routes>
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/library" element={<Library />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+            </Routes>
+          </GameProvider>
           <Footer />
         </Router>
       </div>
