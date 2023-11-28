@@ -1,6 +1,6 @@
 const users = (state, action) => {
   switch (action.type) {
-    case "LOGIN":
+    case "JOIN":
       return {
         ...state,
         token: action.payload.token,

@@ -23,10 +23,10 @@ function App() {
     <div className="bg-[#1b2838]">
       <div className="lg:max-w-[90vw] xl:max-w-[80vw] mx-auto">
         <Router>
-          <Header />
-          <Categories />
           <GameProvider>
             <UserProvider>
+              <Header />
+              <Categories />
               <Routes>
                 <Route path="/join" element={<Join />}></Route>
                 <Route path="/home" element={<Home />}></Route>

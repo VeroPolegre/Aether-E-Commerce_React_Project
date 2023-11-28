@@ -47,10 +47,6 @@ const Navbar = () => {
         </div>
         {/* Right top */}
         <div className="absolute text-white right-10 top-0 text-[12px] lg:flex  items-center mt-2 hidden">
-          <div className="flex items-center bg-[#b268df] px-2 py-1 rounded-[0.3rem]">
-            <ImDownload className="mr-2" />
-            <p className="mr-2">Install Aether</p>
-          </div>
           <HiOutlineSpeakerphone className="w-5 h-5 ml-2 mr-2" />
           <div className="flex items-center">
             <IoIosNotificationsOutline className="w-5 h-5" />

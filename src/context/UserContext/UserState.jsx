@@ -16,10 +16,10 @@ export const UserContext = createContext(initialState);
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
-  const login = async (user) => {
+  const create = async (user) => {
     const res = await axios.post(API_URL + "/join", user);
     dispatch({
-      type: "LOGIN",
+      type: "JOIN",
       payload: res.data,
     });
     if (res.data) {
@@ -31,7 +31,7 @@ export const UserProvider = ({ children }) => {
       value={{
         token: state.token,
         user: state.user,
-        login,
+        create,
       }}
     >
       {children}
