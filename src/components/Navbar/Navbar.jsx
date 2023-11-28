@@ -46,18 +46,17 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Right top */}
-        <div className="absolute text-white  right-10 top-0 text-[12px] lg:flex  items-center mt-2 hidden">
+        <div className="absolute text-white right-10 top-0 text-[12px] lg:flex  items-center mt-2 hidden">
           <div className="flex items-center bg-[#b268df] px-2 py-1 rounded-[0.3rem]">
             <ImDownload className="mr-2" />
-            <p className="mr-2 ">Install Aether</p>
+            <p className="mr-2">Install Aether</p>
           </div>
-          <div className="h-[15px] w-[1px] bg-white mx-4"></div>
-          <HiOutlineSpeakerphone className="w-5 h-5 mr-2" />
+          <HiOutlineSpeakerphone className="w-5 h-5 ml-2 mr-2" />
           <div className="flex items-center">
-            <IoIosNotificationsOutline className="w-5 h-5 mr-1" />
+            <IoIosNotificationsOutline className="w-5 h-5" />
           </div>
-          <div className=" ml-4 mr-4 bg-[#c5c3c0] hover:bg-inherit px-2 py-[2px] rounded-[0.5rem] group duration-100 ease-out">
-            <p className="text-[#2750b8] font-semibold group-hover:text-white duration-100 ease-out">
+          <div className="ml-2 bg-[#174db3] hover:bg-inherit px-10 py-[6px] rounded-[0.5rem] group duration-100 ease-out">
+            <p className="text-white font-bold group-hover:text-[#b268df]">
               Sign in
             </p>
           </div>
