@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { UserContext } from "../../context/UserContext/UserState";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useContext(UserContext);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -34,22 +36,22 @@ const Navbar = () => {
         >
           <ul className="text-[#c5c3c0] text-[18px] flex gap-5">
             <li>
-              <Link to="/home" className="navbar-link">
+              <NavLink to="/home" className="navbar-link">
                 STORE
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/library" className="navbar-link">
+              <NavLink to="/library" className="navbar-link">
                 LIBRARY
-              </Link>
+              </NavLink>
             </li>
             <li>
               <p className="">COMMUNITY</p>
             </li>
             <li>
-              <Link to="/profile" className="navbar-link">
+              <NavLink to="/profile" className="navbar-link">
                 PROFILE
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -59,14 +61,22 @@ const Navbar = () => {
           <div className="flex items-center">
             <IoIosNotificationsOutline className="w-5 h-5" />
           </div>
-          <div className="ml-2 bg-[#174db3] hover:bg-inherit px-10 py-[6px] rounded-[0.5rem] group duration-100 ease-out">
-            <Link
-              to="/join"
-              className="text-white font-bold group-hover:text-[#b268df]"
-            >
-              Sign up
-            </Link>
-          </div>
+          {user ? (
+            <div className="ml-2 bg-[#192533] px-10 py-[6px] rounded-[0.5rem] ">
+              <p className=" text-white font-bold group-hover:text-[#b268df]">
+                {user.name}
+              </p>
+            </div>
+          ) : (
+            <div className="ml-2 bg-[#174db3] hover:bg-inherit px-10 py-[6px] rounded-[0.5rem] group duration-100 ease-out">
+              <Link
+                to="/join"
+                className="text-white font-bold group-hover:text-[#b268df]"
+              >
+                Sign up
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

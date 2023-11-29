@@ -5,12 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 const Confirmation = () => {
   const { email } = useParams();
   const navigate = useNavigate();
-  const { confirmed } = useContext(UserContext);
+  const { confirmed, user } = useContext(UserContext);
+
   useEffect(() => {
     confirmed(email);
     setTimeout(() => {
       navigate("/profile");
-    }, 1000);
+    }, 6000);
   }, []);
 
   return <div>Confirmation</div>;

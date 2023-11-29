@@ -32,6 +32,18 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const login = async (valuesUser) => {
+    const res = await axios.post(API_URL + "/login", valuesUser);
+    dispatch({
+      type: "LOGIN",
+      payload: res.data,
+    });
+    if (res.data) {
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+    }
+  };
+
   const getInfo = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
     const res = await axios.get(API_URL + "/info", {
@@ -39,6 +51,7 @@ export const UserProvider = ({ children }) => {
         authorization: token,
       },
     });
+
     dispatch({
       type: "GET_INFO",
       payload: res.data,
@@ -53,6 +66,7 @@ export const UserProvider = ({ children }) => {
         create,
         confirmed,
         getInfo,
+        login,
       }}
     >
       {children}
