@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import "./Join.scss";
 import { UserContext } from "../../../context/UserContext/UserState";
-import { useNavigate } from "react-router-dom";
+import customImage from "../../../assets/logo.png";
 
 const Join = () => {
   const initialValue = { name: "", email: "", password: "" };
   const [user, setUser] = useState(initialValue);
+  const [join, setJoin] = useState(false);
   const [errors, setErrors] = useState({});
   const { create } = useContext(UserContext);
-  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -38,7 +38,7 @@ const Join = () => {
       try {
         console.log(user);
         await create(user);
-        navigate("/home");
+        setJoin(true);
       } catch (error) {
         if (error.response && error.response.status === 400) {
           setErrors({ ...errors, email: "Email already in use" });
@@ -59,6 +59,26 @@ const Join = () => {
           <h1 className="mb-8 text-3xl text-left text-white">
             CREATE YOUR ACCOUNT
           </h1>
+          {join ? (
+            <div
+              id="toast-default"
+              className="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+              role="alert"
+            >
+              <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8">
+                <img
+                  src={customImage}
+                  alt="Custom Image"
+                  className="w-full h-full rounded-lg"
+                />
+              </div>
+              <div className="ms-3 text-sm text-white font-normal">
+                ⭐ Please confirm your email
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="text-grey-dark mt-6 pb-2">
             Already have an account?
             <a

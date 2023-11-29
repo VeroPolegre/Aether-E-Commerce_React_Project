@@ -48,26 +48,25 @@ const Navbar = () => {
         <div
           className={`hidden lg:flex pl-6 ${isMenuOpen ? "lg:flex" : "hidden"}`}
         >
-          <ul className="text-[#c5c3c0] text-[18px] flex gap-5">
-            <li>
-              <NavLink to="/home" className="navbar-link">
-                STORE
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/library" className="navbar-link">
-                LIBRARY
-              </NavLink>
-            </li>
-            <li>
-              <p className="">COMMUNITY</p>
-            </li>
-            <li>
+          <div className="text-[#c5c3c0] text-[18px] flex gap-5">
+            <NavLink to="/home" className="navbar-link">
+              STORE
+            </NavLink>
+
+            <NavLink to="/library" className="navbar-link">
+              LIBRARY
+            </NavLink>
+
+            <NavLink to="/community" className="navbar-link">
+              COMMUNITY
+            </NavLink>
+
+            {user ? (
               <NavLink to="/profile" className="navbar-link">
                 PROFILE
               </NavLink>
-            </li>
-          </ul>
+            ) : null}
+          </div>
         </div>
         {/* Right top */}
         <div className="absolute text-white right-10 top-0 text-[12px] lg:flex  items-center mt-2 hidden">
