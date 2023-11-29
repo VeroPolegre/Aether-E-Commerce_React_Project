@@ -5,13 +5,27 @@ import logo from "../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { IoIosArrowDown } from "react-icons/io";
 import { UserContext } from "../../context/UserContext/UserState";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const { user } = useContext(UserContext);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleDropdownToggle = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleSignOut = () => {
+    // sign out logic
+  };
+
+  const handleDropdownClick = (e) => {
+    e.stopPropagation();
   };
   return (
     <div className="navbar bg-[#171a21]">
@@ -62,10 +76,33 @@ const Navbar = () => {
             <IoIosNotificationsOutline className="w-5 h-5" />
           </div>
           {user ? (
-            <div className="ml-2 bg-[#192533] px-10 py-[6px] rounded-[0.5rem] ">
-              <p className=" text-white font-bold group-hover:text-[#b268df]">
-                {user.name}
-              </p>
+            <div className="relative ml-2">
+              <div
+                className="bg-[#192533] px-10 py-[6px] rounded-[0.5rem] cursor-pointer flex items-center relative"
+                onClick={handleDropdownToggle}
+              >
+                <p className="text-white font-bold group-hover:text-[#b268df]">
+                  {user.name}
+                </p>
+                <IoIosArrowDown
+                  className={`ml-1 w-4 h-4 transition-transform ${
+                    showDropdown ? "transform rotate-180" : ""
+                  }`}
+                />
+              </div>
+              {showDropdown && (
+                <div
+                  className="absolute top-full bg-[#192533] px-11 py-[6px] rounded-[0.5rem]"
+                  onClick={handleDropdownClick}
+                >
+                  <div
+                    className="text-white cursor-pointer"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="ml-2 bg-[#174db3] hover:bg-inherit px-10 py-[6px] rounded-[0.5rem] group duration-100 ease-out">
