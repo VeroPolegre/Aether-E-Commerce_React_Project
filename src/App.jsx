@@ -20,6 +20,7 @@ import Strategy from "./components/Categories/Strategy/Strategy";
 import Adventure from "./components/Categories/Adventure/Adventure";
 import Simulation from "./components/Categories/Simulation/Simulation";
 import Sports_and_Racing from "./components/Categories/Sports_and_Racing/Sports_and_Racing";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -39,8 +40,8 @@ function App() {
                 ></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/library" element={<Library />}></Route>
-                <Route path="/community" element={<Community />}></Route>
+                <Route path="/library" element={<NotFound />}></Route>
+                <Route path="/community" element={<NotFound />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
 
                 <Route path="/categories/action" element={<Action />}></Route>
