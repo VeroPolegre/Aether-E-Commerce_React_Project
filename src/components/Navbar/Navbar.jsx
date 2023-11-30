@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.scss";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -7,21 +7,24 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { HiOutlineSpeakerphone } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { UserContext } from "../../context/UserContext/UserState";
+import { GameContext } from "../../context/GameContext/GameState";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
+  const { cart } = useContext(GameContext);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleDropdownToggle = () => {
     setShowDropdown(!showDropdown);
-  };
-
-  const handleSignOut = () => {
-    // sign out logic
   };
 
   const handleDropdownClick = (e) => {
@@ -67,6 +70,14 @@ const Navbar = () => {
               </NavLink>
             ) : null}
           </div>
+          <Link to="/cart" className="relative inline-block">
+            {cart.length > 0 && (
+              <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full px-1">
+                {cart.length}
+              </span>
+            )}
+            <FaShoppingCart className=" ml-5 text-2xl text-gray-500 hover:text-gray-700" />
+          </Link>
         </div>
         {/* Right top */}
         <div className="absolute text-white right-10 top-0 text-[12px] lg:flex  items-center mt-2 hidden">
@@ -94,10 +105,7 @@ const Navbar = () => {
                   className="absolute top-full bg-[#192533] px-11 py-[6px] rounded-[0.5rem]"
                   onClick={handleDropdownClick}
                 >
-                  <div
-                    className="text-white cursor-pointer"
-                    onClick={handleSignOut}
-                  >
+                  <div className="text-white cursor-pointer" onClick={logout}>
                     Sign Out
                   </div>
                 </div>

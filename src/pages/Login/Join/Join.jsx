@@ -79,15 +79,6 @@ const Join = () => {
           ) : (
             ""
           )}
-          <div className="text-grey-dark mt-6 pb-2">
-            Already have an account?
-            <a
-              className="no-underline border-b border-blue text-blue"
-              href="../login/"
-            >
-              ⭐Log in
-            </a>
-          </div>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -130,6 +121,15 @@ const Join = () => {
                 {errors.password}
               </p>
             )}
+            <div className="text-grey-dark mt-6 pb-2">
+              Already have an account?
+              <a
+                className="no-underline border-b border-blue text-blue"
+                href="../login/"
+              >
+                ⭐Log in
+              </a>
+            </div>
             <button
               type="submit"
               className="w-100 text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1 bg-[#b268df] px-2 py-1 rounded-[0.3rem]"

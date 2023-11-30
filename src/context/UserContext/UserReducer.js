@@ -23,6 +23,12 @@ const users = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case "LOGOUT":
+      return {
+        ...state,
+        token: null,
+        user: null,
+      };
     default:
       return state;
   }

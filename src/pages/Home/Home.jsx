@@ -5,9 +5,6 @@ const Home = () => {
   return (
     <div>
       <Games />
-      {/*Recommended */}
-      {/*SpecialOffers */}
-      {/*  */}
     </div>
   );
 };

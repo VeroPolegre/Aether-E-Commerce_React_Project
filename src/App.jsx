@@ -1,12 +1,17 @@
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { GameProvider } from "./context/GameContext/GameState";
+import { UserProvider } from "./context/UserContext/UserState";
 import Header from "./pages/Header/Header";
+import Home from "./pages/Home/Home";
+import Join from "./pages/Login/Join/Join";
+import Confirmation from "./pages/Confirmation/Confirmation";
 import Login from "./pages/Login/Login";
+import Cart from "./components/Cart/Cart";
 import Library from "./pages/Library/Library";
+import Community from "./pages/Community/Community";
 import Profile from "./pages/Profile/Profile";
 import Footer from "./pages/Footer/Footer";
-import Home from "./pages/Home/Home";
 
 import Categories from "./components/Categories/Categories";
 import Action from "./components/Categories/Action/Action";
@@ -15,9 +20,6 @@ import Strategy from "./components/Categories/Strategy/Strategy";
 import Adventure from "./components/Categories/Adventure/Adventure";
 import Simulation from "./components/Categories/Simulation/Simulation";
 import Sports_and_Racing from "./components/Categories/Sports_and_Racing/Sports_and_Racing";
-import Join from "./pages/Login/Join/Join";
-import { UserProvider } from "./context/UserContext/UserState";
-import Confirmation from "./pages/Confirmation/Confirmation";
 
 function App() {
   return (
@@ -29,15 +31,17 @@ function App() {
               <Header />
               <Categories />
               <Routes>
+                <Route path="/home" element={<Home />}></Route>
                 <Route path="/join" element={<Join />}></Route>
                 <Route
                   path="/confirmed/:email"
                   element={<Confirmation />}
                 ></Route>
-                <Route path="/home" element={<Home />}></Route>
-                <Route path="/library" element={<Library />}></Route>
-                <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/login" element={<Login />}></Route>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/library" element={<Library />}></Route>
+                <Route path="/community" element={<Community />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
 
                 <Route path="/categories/action" element={<Action />}></Route>
                 <Route
