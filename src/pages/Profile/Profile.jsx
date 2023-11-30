@@ -61,13 +61,15 @@ const Profile = () => {
 
         <div className="mt-8">
           <h2 className="text-2xl font-bold mb-4">Reviews:</h2>
-          {user.Reviews && user.Reviews.length > 0 ? (
+          {user.Reviews && user.Reviews.length == 0 ? (
             <ul className="text-white space-y-2">
-              {user.Reviews.map((review) => (
-                <li key={review.id}>
-                  <strong>{review.game.title}:</strong> {review.content}
-                </li>
-              ))}
+              {user.Reviews.map((review) => {
+                return (
+                  <li key={review.id}>
+                    <strong>{review.game.title}:</strong> {review.content}
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <p className="text-white">No reviews yet.</p>
@@ -80,7 +82,7 @@ const Profile = () => {
             <ul className="text-white space-y-4">
               {user.Orders.map((order) => (
                 <li key={order.id} className="mb-4">
-                  <strong>Order ID:</strong> {order.id},{" "}
+                  <strong>Order nº:</strong> {order.id},{" "}
                   <strong>Total Amount:</strong> $
                   {Number(order.total).toFixed(2)}
                 </li>

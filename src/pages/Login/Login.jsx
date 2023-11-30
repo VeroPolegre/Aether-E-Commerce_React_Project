@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const initialValue = { email: "", password: "" };
+  const initialValue = { email: "", password: "", confirmPassword: "" };
   const [user, setUser] = useState(initialValue);
   const [errors, setErrors] = useState({});
   const { login } = useContext(UserContext);
@@ -24,20 +24,29 @@ const Login = () => {
       errors.password = "Password is required";
     }
 
+    if (!user.confirmPassword) {
+      errors.confirmPassword = "Password confirmation is required";
+    } else if (user.password !== user.confirmPassword) {
+      errors.confirmPassword =
+        "Passwords do not match. Please write the same password.";
+    }
+
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (validateForm()) {
       try {
         console.log(user);
         await login(user);
         navigate("/profile");
       } catch (error) {
-        setErrors({ ...errors, password: "Incorrect email or password" });
+        setErrors({
+          email: "Incorrect email or password",
+          password: "Incorrect email or password",
+        });
       }
     }
   };
@@ -76,9 +85,19 @@ const Login = () => {
               onChange={handleOnChange}
               placeholder="password"
             />
-            {errors.password && (
+            <input
+              type="password"
+              className={`block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21] ${
+                errors.confirmPassword ? "border-red-500" : ""
+              }`}
+              name="confirmPassword"
+              value={user.confirmPassword}
+              onChange={handleOnChange}
+              placeholder="confirm password"
+            />
+            {errors.confirmPassword && (
               <p className="text-red-500 pb-4 text-l italic">
-                {errors.password}
+                {errors.confirmPassword}
               </p>
             )}
             <button

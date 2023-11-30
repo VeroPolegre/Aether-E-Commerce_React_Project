@@ -12,17 +12,14 @@ const Join = () => {
 
   const validateForm = () => {
     const errors = {};
-
     if (!user.name) {
       errors.name = "Username is required";
     }
-
     if (!user.email) {
       errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(user.email)) {
       errors.email = "Email is not valid";
     }
-
     if (!user.password) {
       errors.password = "Password is required";
     }

@@ -5,23 +5,18 @@ const API_URL = "http://localhost:8080/orders";
 const createOrder = async (cart) => {
   try {
     const token = JSON.parse(localStorage.getItem("token"));
-    const gamesInOrder = cart.map((cartItem) => ({
-      GameId: cartItem.id,
-      quantity: cartItem.quantity || 1,
-    }));
-
-    const order = await axios.post(
-      API_URL,
-      { games: gamesInOrder },
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
-
-    console.log("Order created:", order.data);
-    return order;
+    cart.forEach(async (game) => {
+      await axios.post(
+        API_URL,
+        { GameId: game.id, quantity: game.quantity },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+    });
+    return cart;
   } catch (error) {
     console.error(
       "Error creating order:",

@@ -56,16 +56,16 @@ export const GameProvider = ({ children }) => {
     });
   };
 
-  useEffect(() => {
-    const total = state.cart.reduce(
-      (accumulator, item) => accumulator + item.price * item.quantity,
-      0
-    );
-    dispatch({
-      type: "SET_TOTAL_PRICE",
-      payload: total,
-    });
-  }, [state.cart]);
+  // useEffect(() => {
+  //   const total = state.cart.reduce(
+  //     (accumulator, item) => accumulator + item.price * item.quantity,
+  //     0
+  //   );
+  //   dispatch({
+  //     type: "SET_TOTAL_PRICE",
+  //     payload: total,
+  //   });
+  // }, [state.cart]);
 
   return (
     <GameContext.Provider

@@ -3,9 +3,11 @@ import axios from "axios";
 import UserReducer from "./UserReducer";
 
 const token = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
+
 const initialState = {
   token: token ? token : null,
-  user: null,
+  user: user || null,
 };
 const API_URL = "http://localhost:8080/users";
 export const UserContext = createContext(initialState);

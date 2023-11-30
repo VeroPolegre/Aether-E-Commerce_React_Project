@@ -22,7 +22,11 @@ const Game = () => {
           <h2 className="text-[22px] mt-3">{game.title}</h2>
           <div className="h-full md:h-[24rem] w-full flex flex-col md:flex-row pt-3">
             <div className="w-full h-full bg-black-400 flex">
-              <img alt="" className="object-cover w-full" />
+              <img
+                alt=""
+                src={game.image_path}
+                className="object-cover w-full"
+              />
             </div>
           </div>
           <div className="pl-4 pb-2">
