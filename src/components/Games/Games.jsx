@@ -3,7 +3,7 @@ import { GameContext } from "../../context/GameContext/GameState";
 import Game from "./Game/Game";
 
 const Games = () => {
-  const { games, getGames, addCart } = useContext(GameContext);
+  const { getGames } = useContext(GameContext);
 
   useEffect(() => {
     getGames();
@@ -11,9 +11,7 @@ const Games = () => {
 
   return (
     <div className="games-container">
-      {games.map((game) => (
-        <Game key={game.id} game={game} addCart={addCart} />
-      ))}
+      <Game />
     </div>
   );
 };
