@@ -24,6 +24,13 @@ const Join = () => {
       errors.password = "Password is required";
     }
 
+    if (!user.confirmPassword) {
+      errors.confirmPassword = "Password confirmation is required";
+    } else if (user.password !== user.confirmPassword) {
+      errors.confirmPassword =
+        "Passwords do not match. Please write the same password.";
+    }
+
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -113,9 +120,19 @@ const Join = () => {
               onChange={handleOnChange}
               placeholder="password"
             />
-            {errors.password && (
+            <input
+              type="password"
+              className={`block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21] ${
+                errors.confirmPassword ? "border-red-500" : ""
+              }`}
+              name="confirmPassword"
+              value={user.confirmPassword}
+              onChange={handleOnChange}
+              placeholder="confirm password"
+            />
+            {errors.confirmPassword && (
               <p className="text-red-500 pb-4 text-l italic">
-                {errors.password}
+                {errors.confirmPassword}
               </p>
             )}
             <div className="text-grey-dark mt-6 pb-2">

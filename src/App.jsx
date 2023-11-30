@@ -44,26 +44,26 @@ function App() {
                 <Route path="/community" element={<NotFound />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
 
-                <Route path="/categories/action" element={<Action />}></Route>
+                <Route path="/categories/action" element={<NotFound />}></Route>
                 <Route
                   path="/categories/role-playing"
-                  element={<Role_Playing />}
+                  element={<NotFound />}
                 ></Route>
                 <Route
                   path="/categories/strategy"
-                  element={<Strategy />}
+                  element={<NotFound />}
                 ></Route>
                 <Route
                   path="/categories/adventure"
-                  element={<Adventure />}
+                  element={<NotFound />}
                 ></Route>
                 <Route
                   path="/categories/simulation"
-                  element={<Simulation />}
+                  element={<NotFound />}
                 ></Route>
                 <Route
                   path="/categories/sports-and-racing"
-                  element={<Sports_and_Racing />}
+                  element={<NotFound />}
                 ></Route>
               </Routes>
             </UserProvider>

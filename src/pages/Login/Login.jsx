@@ -24,13 +24,6 @@ const Login = () => {
       errors.password = "Password is required";
     }
 
-    if (!user.confirmPassword) {
-      errors.confirmPassword = "Password confirmation is required";
-    } else if (user.password !== user.confirmPassword) {
-      errors.confirmPassword =
-        "Passwords do not match. Please write the same password.";
-    }
-
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -85,21 +78,6 @@ const Login = () => {
               onChange={handleOnChange}
               placeholder="password"
             />
-            <input
-              type="password"
-              className={`block border border-grey-light w-full p-3 rounded mb-4 bg-[#171a21] ${
-                errors.confirmPassword ? "border-red-500" : ""
-              }`}
-              name="confirmPassword"
-              value={user.confirmPassword}
-              onChange={handleOnChange}
-              placeholder="confirm password"
-            />
-            {errors.confirmPassword && (
-              <p className="text-red-500 pb-4 text-l italic">
-                {errors.confirmPassword}
-              </p>
-            )}
             <button
               type="submit"
               className="w-100 text-center py-3 rounded bg-green text-white hover:bg-white-dark focus:outline-none my-1 bg-[#b268df] px-2 py-1 rounded-[0.3rem]"

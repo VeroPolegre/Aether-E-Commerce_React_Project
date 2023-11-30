@@ -23,7 +23,6 @@ export const GameProvider = ({ children }) => {
         ...game,
         quantity: 1,
       }));
-
       dispatch({
         type: "GET_GAMES",
         payload: gamesWithQuantity,
@@ -38,6 +37,7 @@ export const GameProvider = ({ children }) => {
       console.error(error);
     }
   };
+
   const addCart = (game) => {
     dispatch({
       type: "ADD_CART",
@@ -50,22 +50,12 @@ export const GameProvider = ({ children }) => {
       payload: totalPrice,
     });
   };
+
   const clearCart = () => {
     dispatch({
       type: "CLEAR_CART",
     });
   };
-
-  // useEffect(() => {
-  //   const total = state.cart.reduce(
-  //     (accumulator, item) => accumulator + item.price * item.quantity,
-  //     0
-  //   );
-  //   dispatch({
-  //     type: "SET_TOTAL_PRICE",
-  //     payload: total,
-  //   });
-  // }, [state.cart]);
 
   return (
     <GameContext.Provider

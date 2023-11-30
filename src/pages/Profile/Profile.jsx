@@ -2,11 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
-import { GameContext } from "../../context/GameContext/GameState";
 
 const Profile = () => {
   const { getInfo, user, token } = useContext(UserContext);
-  const { game } = useContext(GameContext);
   const navigate = useNavigate();
 
   useEffect(() => {
