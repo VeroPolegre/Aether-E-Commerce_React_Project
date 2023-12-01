@@ -65,6 +65,7 @@ function App() {
                   path="/categories/sports-and-racing"
                   element={<NotFound />}
                 ></Route>
+                <Route path="*" element={<NotFound />}></Route>
               </Routes>
             </UserProvider>
           </GameProvider>
