@@ -18,17 +18,17 @@
   
 # <h2><samp> 💬  Introduction to Aether Project: Recreating the Steam Store  </samp></h2>
 
-The primary objective of the Aether project was to reimagine and recreate the user experience akin to the renowned Steam store. 
+The primary objective of this project was to reimagine and recreate the user experience akin to the renowned Steam store. 
 
-The foundational backend infrastructure for Aether was established in my initial Backend Project, aptly named [Aether-E-Commerce_React_Project](https://github.com/VeroPolegre/Aether-E-Commerce_Backend_Project)
+The foundational backend infrastructure for Aether was established in my initial Backend Project, named [Aether-E-Commerce_React_Project](https://github.com/VeroPolegre/Aether-E-Commerce_Backend_Project)
 
-As we delve into this project, the aim was to capture the essence and functionality of the Steam store, offering users a familiar yet enhanced experience. Join me on this journey as I shaped Aether into a vibrant and user-friendly e-commerce destination !
+The aim was to capture the essence and functionality of the Steam store, offering users a familiar game store experience. Join me on this journey in the development of Aether!
 
 # <h2><samp> ⚡ Objectives  </samp></h2>
 <samp>
   
 - Register
-- Log in
+- Login
 - View products
 - Create orders
 - Add to cart
@@ -71,19 +71,17 @@ The project was centered around creating a robust and user-friendly application,
 Let's dive into the key components and features!
 
 ## Main pages components:
-1. **Register:** Allows users to sign up for the platform.
+1. **Join:** Page for user registration.
 2. **Login:** Enables users to log in to their accounts.
-3. **Home:** The main landing page of the app.
-4. **Join:** Page for user registration.
-5. **Confirmation:** Confirmation page.
-6. **Login:** Page for user login.
-7. **Cart:** Manages the items selected for purchase.
-8. **Library:** Library page.
-9. **Community:** Community page.
-10. **Profile:** User profile page.
-11. **Footer:** Closing component at the bottom of the page.
+3. **Confirmation:** Confirmation page when their email account is confirmed.
+4. **Home:** The main landing page of the app.
+5. **Cart:** Manages the items selected for purchase.
+6. **Library:** [future roadmap]
+7. **Community:** [future roadmap]
+8. **Profile:** User profile page.
+9. **Footer:** Closing component at the bottom of the page.
 
-## Additional Components:
+## Additional Components [future roadmap]:
 - **Categories:** Component for displaying game categories.
 - **Action:** Action category.
 - **Role_Playing:** Role-playing category.
@@ -95,14 +93,15 @@ Let's dive into the key components and features!
 
 ## React Router Implementation:
 - **/home:** The app's main landing page.
-- **/login:** Page for user login.
-- **/register:** Page for user registration.
+- **/login:** Page for user login and join.
 - **/profile:** User profile page.
+- **/library:** [future roadmap]
+- **/community:** [future roadmap]
 
 ## Key Features:
 
 - **React Context for Efficient State Management:**
-  -  React Context to efficiently manage and share state across components without the need for prop drilling. This facilitates a more streamlined and maintainable state management approach.
+  -  Used to efficiently manage and share state across components without the need for prop drilling. This facilitates a more streamlined and maintainable state management approach.
   
 - **SASS and Tailwind for Enhanced Styling and Design:**
   - SASS for a more structured and modular approach to styling, allowing for the creation of reusable styles. Additionally, leverages Tailwind CSS to expedite the styling process with utility-first classes. Tailwind provides a vast set of pre-defined styles, enabling rapid and consistent design implementation.
