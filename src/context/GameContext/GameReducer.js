@@ -36,6 +36,24 @@ const games = (state, action) => {
         ...state,
         totalPrice: action.payload,
       };
+    case "REMOVE_ONE_ITEM":
+      const updatedCart = state.cart
+        .map((item) => {
+          if (item.id === action.payload) {
+            if (item.quantity > 1) {
+              return { ...item, quantity: item.quantity - 1 };
+            } else {
+              return null;
+            }
+          }
+          return item;
+        })
+        .filter(Boolean);
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
     default:
       return state;
   }

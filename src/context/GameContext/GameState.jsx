@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useEffect, useReducer } from "react";
 import GameReducer from "./GameReducer";
 
-const cart = JSON.parse(localStorage.getItem("orders"));
+const cart = JSON.parse(localStorage.getItem("cart"));
 
 const initialState = {
   games: [],
@@ -28,10 +28,8 @@ export const GameProvider = ({ children }) => {
         payload: gamesWithQuantity,
       });
 
-      const totalPrice = res.data.reduce((acc, game) => acc + game.price, 0);
       dispatch({
         type: "SET_TOTAL_PRICE",
-        payload: totalPrice,
       });
     } catch (error) {
       console.error(error);
@@ -44,10 +42,8 @@ export const GameProvider = ({ children }) => {
       payload: game,
     });
 
-    const totalPrice = state.cart.reduce((acc, game) => acc + game.price, 0);
     dispatch({
       type: "SET_TOTAL_PRICE",
-      payload: totalPrice,
     });
   };
 
@@ -56,6 +52,40 @@ export const GameProvider = ({ children }) => {
       type: "CLEAR_CART",
     });
   };
+
+  const removeOneItem = (itemId) => {
+    dispatch({
+      type: "REMOVE_ONE_ITEM",
+      payload: itemId,
+    });
+  };
+
+  const signOut = () => {
+    dispatch({
+      type: "LOGOUT",
+    });
+    dispatch({
+      type: "CLEAR_CART",
+    });
+  };
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart"));
+    if (storedCart) {
+      dispatch({
+        type: "SET_CART",
+        payload: storedCart,
+      });
+
+      dispatch({
+        type: "SET_TOTAL_PRICE",
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return (
     <GameContext.Provider
@@ -66,6 +96,8 @@ export const GameProvider = ({ children }) => {
         getGames,
         addCart,
         clearCart,
+        removeOneItem,
+        signOut,
       }}
     >
       {children}

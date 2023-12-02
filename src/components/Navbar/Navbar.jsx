@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const { user, logout } = useContext(UserContext);
-  const { cart } = useContext(GameContext);
+  const { cart, clearCart } = useContext(GameContext);
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -29,7 +29,12 @@ const Navbar = () => {
 
   const handleDropdownClick = (e) => {
     e.stopPropagation();
+    if (user) {
+      logout();
+      clearCart();
+    }
   };
+
   return (
     <div className="navbar bg-[#171a21]">
       <div className="flex items-center max-w-[100vw] mx-auto relative">
