@@ -144,7 +144,7 @@ This project is under license of [Vero Polegre](https://github.com/VeroPolegre)
 
 ### ⭐️ How to reach me!
 
-<a href="https://www.linkedin.com/in/veronica-polegre-/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/veronica-polegre/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 
 📩 Or if you want to send me an email: **veronicapolegre98@gmail.com**
 
