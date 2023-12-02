@@ -123,7 +123,7 @@ To enable secure API requests, CORS module was installed:
 
 https://github.com/VeroPolegre/Aether-E-Commerce_React_Project/assets/145065743/31d75487-d84e-4fef-8eef-a23c1c1da81f
 
-https://github.com/VeroPolegre/Aether-E-Commerce_React_Project/assets/145065743/c9ca06c6-3803-4376-9b46-1838278d5b56
+https://github.com/VeroPolegre/Aether-E-Commerce_React_Project/assets/145065743/b47c91a8-92a3-4dc5-b2ae-1bd5c9923f24
 
 https://github.com/VeroPolegre/Aether-E-Commerce_React_Project/assets/145065743/08163d12-28ef-485e-9613-983f51ccd557
 
