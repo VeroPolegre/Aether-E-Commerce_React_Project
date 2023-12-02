@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
+import avatar from "../../assets/default-avatar.png";
 
 const Profile = () => {
   const { getInfo, user, token } = useContext(UserContext);
@@ -34,9 +35,9 @@ const Profile = () => {
           </div>
           <div>
             <img
-              src={user.avatar || "default-avatar-url"} // Replace with the correct avatar URL or a default avatar
+              src={avatar}
               alt="User Avatar"
-              className="w-20 h-20 rounded-full"
+              className="w-14 h-14 rounded-full"
             />
           </div>
         </div>
@@ -75,14 +76,12 @@ const Profile = () => {
         </div>
 
         <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Orders:</h2>
+          <h2 className="text-2xl font-bold mb-4">Game keys:</h2>
           {user.Orders && user.Orders.length > 0 ? (
             <ul className="text-white space-y-4">
               {user.Orders.map((order) => (
                 <li key={order.id} className="mb-4">
-                  <strong>Order nº:</strong> {order.id},{" "}
-                  <strong>Total Amount:</strong> $
-                  {Number(order.total).toFixed(2)}
+                  <strong>Order nº:</strong> {order.id}{" "}
                 </li>
               ))}
             </ul>
