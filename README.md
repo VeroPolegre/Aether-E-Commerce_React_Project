@@ -9,8 +9,7 @@
     E-commerce made with Javascript and React using Context and SASS.
     <br /> 
     ⭐
-    <a href="https://github.com/VeroPolegre/Aether-E-Commerce_Backend_Project
-/issues">Request Feature</a>
+    <a href="https://github.com/VeroPolegre/Aether-E-Commerce_React_Project/issues">Request Feature</a>
     ⭐
     <br />
   
